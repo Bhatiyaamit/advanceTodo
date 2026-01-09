@@ -23,10 +23,7 @@ const TodoForm = () => {
   };
 
   return (
-    <form
-      onSubmit={handleSubmit}
-      className="flex gap-2 mb-4"
-    >
+    <form onSubmit={handleSubmit} className="flex gap-2 mb-4">
       <input
         type="text"
         placeholder="Add a task..."
@@ -46,7 +43,7 @@ const TodoForm = () => {
 
       <button
         type="submit"
-        className="px-4 py-2 bg-black dark:bg-slate-600 text-white rounded-lg"
+        className="px-4 py-2 bg-accent-600 hover:bg-accent-700 dark:bg-accent-600 dark:hover:bg-accent-700 text-white rounded-lg transition-colors"
       >
         Add
       </button>

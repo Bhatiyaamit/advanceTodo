@@ -3,6 +3,7 @@ import Sidebar from "../components/layout/Sidebar";
 import Header from "../components/layout/Header";
 import TodoList from "../components/todos/TodoList";
 import CalendarView from "../components/calendar/CalendarView";
+import SettingsPage from "../components/settings/SettingsPage";
 
 const Dashboard = () => {
   const view = useSelector((state) => state.calendar.view);
@@ -16,7 +17,7 @@ const Dashboard = () => {
 
         <main className="p-6 flex-1 overflow-y-auto">
           {view === "calendar" && <CalendarView />}
-          {view === "settings" && <p>Settings coming soon</p>}
+          {view === "settings" && <SettingsPage />}
           {view !== "calendar" && view !== "settings" && <TodoList />}
         </main>
       </div>

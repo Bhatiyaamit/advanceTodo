@@ -8,7 +8,7 @@ import Dashboard from "./pages/Dashboard";
 import ProtectedRoute from "./components/layout/ProtectedRoute";
 
 const App = () => {
-  const { mode } = useSelector((state) => state.theme);
+  const { mode, accent } = useSelector((state) => state.theme);
 
   // Apply dark mode class to html element
   useEffect(() => {
@@ -18,6 +18,11 @@ const App = () => {
       document.documentElement.classList.remove("dark");
     }
   }, [mode]);
+
+  // Apply accent color data attribute to html element
+  useEffect(() => {
+    document.documentElement.setAttribute("data-accent", accent);
+  }, [accent]);
 
   return (
     <BrowserRouter>

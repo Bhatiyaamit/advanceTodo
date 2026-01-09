@@ -1,7 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-  view: "week",          // "week" | "day"
+  view: "week", // "week" | "day"
   selectedDate: new Date().toISOString().slice(0, 10),
 };
 
@@ -16,17 +16,11 @@ const calendarSlice = createSlice({
       state.selectedDate = action.payload; // yyyy-mm-dd
     },
     goToToday: (state) => {
-      state.selectedDate = new Date()
-        .toISOString()
-        .slice(0, 10);
+      state.selectedDate = new Date().toISOString().slice(0, 10);
     },
   },
 });
 
-export const {
-  setView,
-  setSelectedDate,
-  goToToday,
-} = calendarSlice.actions;
+export const { setView, setSelectedDate, goToToday } = calendarSlice.actions;
 
 export default calendarSlice.reducer;

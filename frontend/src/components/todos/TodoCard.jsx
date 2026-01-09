@@ -1,8 +1,5 @@
 import { useDispatch } from "react-redux";
-import {
-  updateTodo,
-  deleteTodo,
-} from "../../features/todos/todoSlice";
+import { updateTodo, deleteTodo } from "../../features/todos/todoSlice";
 
 const TodoCard = ({ todo }) => {
   const dispatch = useDispatch();
@@ -27,6 +24,7 @@ const TodoCard = ({ todo }) => {
           type="checkbox"
           checked={todo.completed}
           onChange={toggleComplete}
+          className="w-5 h-5 text-accent-600 bg-gray-100 border-gray-300 rounded focus:ring-accent-500 dark:focus:ring-accent-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
         />
 
         <div>
@@ -37,16 +35,11 @@ const TodoCard = ({ todo }) => {
           >
             {todo.title}
           </p>
-          <span className="text-xs text-slate-500">
-            {todo.category}
-          </span>
+          <span className="text-xs text-slate-500">{todo.category}</span>
         </div>
       </div>
 
-      <button
-        onClick={handleDelete}
-        className="text-red-500 text-sm"
-      >
+      <button onClick={handleDelete} className="text-red-500 text-sm">
         Delete
       </button>
     </div>
