@@ -59,11 +59,34 @@ const SettingsPage = () => {
   ];
 
   return (
-    <div className="max-w-2xl">
-      <div className="bg-white dark:bg-slate-800 rounded-lg shadow-sm border dark:border-slate-700 p-6">
+    <div className="max-w-2xl w-full">
+      <div className="bg-white dark:bg-slate-800 rounded-lg shadow-sm border dark:border-slate-700 p-6 max-h-[85vh] overflow-y-auto">
+        <div className="flex items-center justify-between mb-6">
         <h2 className="text-2xl font-bold mb-6 text-slate-800 dark:text-slate-100">
           Settings
         </h2>
+
+        <button
+            onClick={handleLogout}
+            className=" px-4 py-3 bg-red-500 hover:bg-red-600 text-white rounded-lg font-medium transition-colors flex items-center justify-center gap-2"
+          >
+            <svg
+              className="w-5 h-5"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"
+              />
+            </svg>
+            Logout
+          </button> 
+        </div>
+       
 
         {themeError && (
           <div className="mb-4 p-3 bg-red-100 dark:bg-red-900/30 border border-red-400 dark:border-red-700 rounded text-red-700 dark:text-red-400">
@@ -178,13 +201,9 @@ const SettingsPage = () => {
                 disabled={themeLoading}
                 className={`p-4 rounded-lg border-2 transition-all ${
                   accent === color.name
-                    ? "border-accent-500 bg-accent-50 dark:bg-accent-100/10"
+                    ? "border-accent-500  dark:bg-accent-100/10"
                     : "border-slate-200 dark:border-slate-600 hover:border-slate-300 dark:hover:border-slate-500"
-                } ${
-                  themeLoading
-                    ? "opacity-50 cursor-not-allowed"
-                    : "cursor-pointer"
-                }`}
+                } `}
               >
                 <div className="flex items-center space-x-3">
                   <div className={`w-8 h-8 rounded-full ${color.color}`} />
@@ -198,37 +217,9 @@ const SettingsPage = () => {
         </div>
 
         {/* Logout Section */}
-        <div className="mt-8 pt-6 border-t dark:border-slate-700">
-          <h3 className="text-lg font-semibold mb-4 text-slate-700 dark:text-slate-200">
-            Account
-          </h3>
+       
 
-          <button
-            onClick={handleLogout}
-            className="w-full px-4 py-3 bg-red-500 hover:bg-red-600 text-white rounded-lg font-medium transition-colors flex items-center justify-center gap-2"
-          >
-            <svg
-              className="w-5 h-5"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"
-              />
-            </svg>
-            Logout
-          </button>
-        </div>
-
-        {themeLoading && (
-          <div className="mt-6 text-center text-sm text-slate-600 dark:text-slate-400">
-            Saving preferences...
-          </div>
-        )}
+        
       </div>
     </div>
   );

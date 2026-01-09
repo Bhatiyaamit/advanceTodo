@@ -154,6 +154,22 @@
   --tw-ring-color: rgb(var(--accent-600));
 }
 
+/* Undo toast animation */
+@keyframes slide-up {
+  from {
+    transform: translate(-50%, 100px);
+    opacity: 0;
+  }
+  to {
+    transform: translate(-50%, 0);
+    opacity: 1;
+  }
+}
+
+.animate-slide-up {
+  animation: slide-up 0.3s ease-out forwards;
+}
+
 /* Checkbox accent color support */
 input[type="checkbox"].text-accent-600:checked {
   background-color: rgb(var(--accent-600));
