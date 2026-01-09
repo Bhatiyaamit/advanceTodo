@@ -32,8 +32,8 @@ export const updateTheme = createAsyncThunk(
 );
 
 const initialState = {
-  mode: "light",     // light | dark
-  accent: "blue",    // blue | purple | green etc.
+  mode: "light", // light | dark
+  accent: "blue", // blue | purple | green etc.
   loading: false,
   error: null,
 };
@@ -58,8 +58,8 @@ const themeSlice = createSlice({
       })
       .addCase(fetchTheme.fulfilled, (state, action) => {
         state.loading = false;
-        state.mode = action.payload.mode;
-        state.accent = action.payload.accent;
+        state.mode = action.payload.theme.mode;
+        state.accent = action.payload.theme.accent;
       })
       .addCase(fetchTheme.rejected, (state, action) => {
         state.loading = false;
@@ -72,8 +72,8 @@ const themeSlice = createSlice({
       })
       .addCase(updateTheme.fulfilled, (state, action) => {
         state.loading = false;
-        state.mode = action.payload.mode;
-        state.accent = action.payload.accent;
+        state.mode = action.payload.theme.mode;
+        state.accent = action.payload.theme.accent;
       })
       .addCase(updateTheme.rejected, (state, action) => {
         state.loading = false;

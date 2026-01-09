@@ -10,7 +10,5 @@ export const googleCallback = (req, res) => {
   const token = generateToken(req.user._id);
   console.log("Generated Token:", token);
 
-  res.redirect(
-    `${process.env.CLIENT_URL}/auth/success?token=${token}`
-  );
+  res.redirect(`${process.env.CLIENT_URL}/auth/success?token=${token}`);
 };

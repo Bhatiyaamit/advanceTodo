@@ -39,7 +39,10 @@ const TodoCard = ({ todo }) => {
         </div>
       </div>
 
-      <button onClick={handleDelete} className="text-red-500 text-sm">
+      <button
+        onClick={handleDelete}
+        className="text-red-500 dark:text-red-400 hover:text-red-600 dark:hover:text-red-300 text-sm transition-colors"
+      >
         Delete
       </button>
     </div>

@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { fetchTheme } from "../features/theme/themeSlice";
+import { loadUser } from "../features/auth/authSlice";
 
 const AuthSuccess = () => {
   const navigate = useNavigate();
@@ -14,6 +15,7 @@ const AuthSuccess = () => {
 
     if (token) {
       localStorage.setItem("token", token);
+      dispatch(loadUser()); // Fetch complete user profile including avatar and name
       dispatch(fetchTheme()); // Fetch user theme preferences
       navigate("/dashboard");
     } else {

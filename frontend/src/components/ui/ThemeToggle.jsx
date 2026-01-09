@@ -9,11 +9,13 @@ const ThemeToggle = () => {
     const newMode = mode === "light" ? "dark" : "light";
     // Instantly toggle the mode
     dispatch(toggleMode());
-    // Then save to backend
+    // Then save to backend with correct structure
     dispatch(
       updateTheme({
-        mode: newMode,
-        accent,
+        theme: {
+          mode: newMode,
+          accent,
+        },
       })
     );
   };

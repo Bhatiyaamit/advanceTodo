@@ -11,7 +11,10 @@ router.get(
 
 router.get(
   "/google/callback",
-  passport.authenticate("google", { session: false, failureRedirect: `${process.env.CLIENT_URL}/login` }),
+  passport.authenticate("google", {
+    session: false,
+    failureRedirect: `${process.env.CLIENT_URL}/login`,
+  }),
   googleCallback
 );
 
